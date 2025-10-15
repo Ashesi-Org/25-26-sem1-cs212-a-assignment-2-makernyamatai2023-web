@@ -153,9 +153,8 @@ def find_files_by_extension(directory, extension, current_path=""):
     found_files = []
 
     try:
-         for item in os.listdir(directory):
+        for item in os.listdir(directory):
             item_path = os.path.join(directory, item)
-
             if os.path.isfile(item_path):
                 # Base case: Check if file matches extension
                 if item.lower().endswith(extension.lower()):
@@ -167,9 +166,9 @@ def find_files_by_extension(directory, extension, current_path=""):
             elif os.path.isdir(item_path):
                 # Recursive case: Search in subdirectory
                 sub_path = os.path.join(current_path, item) if current_path else item
-                # TODO recursively call find_files_by_extension
+                # recursively call find_files_by_extension
                 sub_files = find_files_by_extension(item_path, extension, sub_path)
-                # TODO: Extend found_files with results from recursive call
+                # Extend found_files with results from recursive call
                 found_files.extend(sub_files)
 
                 
